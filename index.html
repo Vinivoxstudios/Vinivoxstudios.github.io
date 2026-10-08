@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ViniVox Studios | Video Editing & Motion Design</title>
+
+  <meta name="description" content="ViniVox Studios creates high-impact video edits, reels, motion graphics and digital content for creators and brands.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050b14;
+      --bg2: #081321;
+      --card: #0b1726;
+      --yellow: #ffd21c;
+      --orange: #ff8a00;
+      --blue: #102b48;
+      --white: #ffffff;
+      --muted: #91a0b3;
+      --border: rgba(255,255,255,0.09);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255,150,0,0.08), transparent 30%),
+        radial-gradient(circle at 10% 30%, rgba(20,80,150,0.13), transparent 35%),
+        var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 78px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      background: rgba(5,11,20,0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .nav-logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .nav-logo span {
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: #c7d0dc;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-contact {
+      padding: 11px 18px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      color: #07101b !important;
+      font-weight: 800;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 7% 90px;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      right: -200px;
+      top: 100px;
+
+      background: radial-gradient(
+        circle,
+        rgba(255,164,0,0.18),
+        transparent 65%
+      );
+
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      margin-bottom: 25px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg,var(--yellow),var(--orange));
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 8vw, 110px);
+      line-height: 0.92;
+      letter-spacing: -5px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(
+        110deg,
+        #fff 10%,
+        var(--yellow) 48%,
+        var(--orange) 90%
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin-top: 30px;
+
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 38px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 15px 24px;
+      border-radius: 9px;
+
+      font-weight: 800;
+      font-size: 14px;
+
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,var(--yellow),var(--orange));
+      color: #06101c;
+      box-shadow: 0 10px 35px rgba(255,145,0,0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(255,145,0,0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    /* ================= SECTION ================= */
+
+    section {
+      padding: 110px 7%;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(35px,5vw,65px);
+      line-height: 1;
+      letter-spacing: -3px;
+      font-weight: 900;
+    }
+
+    .section-description {
+      max-width: 450px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ================= REELS ================= */
+
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .reel-card {
+      position: relative;
+      aspect-ratio: 9 / 16;
+
+      overflow: hidden;
+      border-radius: 18px;
+
+      background:
+        linear-gradient(145deg,#102c48,#050b14);
+
+      border: 1px solid var(--border);
+
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
+      transition: 0.4s;
+    }
+
+    .reel-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255,210,28,0.5);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    }
+
+    .reel-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+      background:
+        radial-gradient(circle at center,#183a5e,#050b14);
+    }
+
+    .reel-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 18px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.3),
+          transparent 40%,
+          rgba(0,0,0,0.9)
+        );
+
+      pointer-events: none;
+    }
+
+    .reel-number {
+      align-self: flex-end;
+
+      width: 35px;
+      height: 35px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(10px);
+
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .reel-info {
+      pointer-events: auto;
+    }
+
+    .reel-info h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .reel-info p {
+      color: #c1cad5;
+      font-size: 12px;
+      margin-bottom: 13px;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      color: var(--yellow);
+    }
+
+    /* ================= STATS ================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat {
+      padding: 35px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 35px;
+      color: var(--yellow);
+      font-weight: 900;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 32px;
+      min-height: 210px;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17,44,72,0.6),
+          rgba(6,13,23,0.8)
+        );
+
+      transition: 0.35s;
+    }
+
+    .service:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,210,28,0.4);
+    }
+
+    .service-icon {
+      width: 45px;
+      height: 45px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: linear-gradient(
+        135deg,
+        rgba(255,210,28,0.15),
+        rgba(255,138,0,0.12)
+      );
+
+      color: var(--yellow);
+
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .service h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      min-height: 500px;
+
+      border-radius: 25px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,170,0,0.12),
+          transparent 55%
+        ),
+        #07111e;
+
+      border: 1px solid var(--border);
+    }
+
+    .about-logo img {
+      width: 60%;
+      max-width: 360px;
+
+      filter:
+        drop-shadow(0 20px 35px rgba(0,0,0,0.5));
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 22px;
+      font-size: 16px;
+    }
+
+    .about-points {
+      margin-top: 30px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .about-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #dce3eb;
+      font-size: 14px;
+    }
+
+    .about-point span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,var(--yellow),var(--orange));
+      box-shadow: 0 0 12px rgba(255,190,0,0.4);
+    }
+
+    /* ================= PROCESS ================= */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+    }
+
+    .process {
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    .process:last-child {
+      border-right: none;
+    }
+
+    .process-number {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 35px;
+    }
+
+    .process h3 {
+      margin-bottom: 10px;
+    }
+
+    .process p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      margin: 40px 7% 100px;
+      padding: 90px 8%;
+
+      position: relative;
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(255,143,0,0.22),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #0e2945,
+          #07111e
+        );
+
+      border: 1px solid rgba(255,210,28,0.18);
+    }
+
+    .cta h2 {
+      font-size: clamp(40px,6vw,75px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      max-width: 800px;
+    }
+
+    .cta h2 span {
+      color: var(--yellow);
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin: 25px 0 30px;
+      max-width: 600px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 50px 7% 30px;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand span {
+      color: var(--yellow);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .copyright {
+      color: #657386;
+      font-size: 11px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 1000px) {
+
+      .reels-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-logo {
+        min-height: 400px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 130px 22px 70px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 75px 22px;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 20px;
+      }
+
+      .reels-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+      }
+
+      .reel-card {
+        border-radius: 12px;
+      }
+
+      .reel-info h3 {
+        font-size: 13px;
+      }
+
+      .reel-info p {
+        font-size: 9px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cta {
+        margin: 20px 22px 70px;
+        padding: 60px 30px;
+      }
+
+      footer {
+        padding: 40px 22px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav>
+
+    <a href="#top" class="nav-logo">
+
+      <img src="Logo.png.png" alt="ViniVox Studios Logo">
+
+      <span>VINIVOX STUDIOS</span>
+
+    </a>
+
+    <div class="nav-links">
+
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-contact">Contact</a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <header class="hero" id="top">
+
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        VIDEO EDITING • MOTION • STORYTELLING
+      </div>
+
+      <h1>
+        We make<br>
+        <span>content move.</span>
+      </h1>
+
+      <p class="hero-description">
+        ViniVox Studios transforms raw footage into powerful,
+        engaging and scroll-stopping visual content for creators,
+        brands and digital businesses.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#work" class="btn btn-primary">
+          VIEW OUR WORK
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+          START A PROJECT
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= STATS ================= -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>01</strong>
+      <span>Creative Studio</span>
+    </div>
+
+    <div class="stat">
+      <strong>4+</strong>
+      <span>Content Formats</span>
+    </div>
+
+    <div class="stat">
+      <strong>9:16</strong>
+      <span>Short Form Ready</span>
+    </div>
+
+    <div class="stat">
+      <strong>∞</strong>
+      <span>Creative Ideas</span>
+    </div>
+
+  </div>
+
+
+  <!-- ================= WORK ================= -->
+
+  <section id="work">
+
+    <div class="section-header">
+
+      <div>
+
+        <div class="section-label">
+          Selected Work
+        </div>
+
+        <h2 class="section-title">
+          Projects that<br>
+          <span style="color:var(--yellow)">speak visually.</span>
+        </h2>
+
+      </div>
+
+      <p class="section-description">
+        A selection of edits, reels and visual content created
+        for creators and brands. Tap a project to explore more.
+      </p>
+
+    </div>
+
+
+    <div class="reels-grid">
+
+
+      <!-- REEL 01 -->
+
+      <article class="reel-card">
+
+        <video
+          src=""
+          poster=""
+          autoplay
+          muted
+          loop
+          playsinline>
+        </video>
+
+        <div class="reel-overlay">
+
+          <div class="reel-number">01</div>
+
+          <div class="reel-info">
+
+            <h3>Creator Project</h3>
+
+            <p>
+              Short-form video editing
+            </p>
+
+            <a
+              href="#"
+              class="instagram-link"
+              target="_blank">
+
+              Instagram ↗
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 02 -->
+
+      <article class="reel-card">
+
+        <video
+          src=""
+          poster=""
+          autoplay
+          muted
+          loop
+          playsinline>
+        </video>
+
+        <div class="reel-overlay">
+
+          <div class="reel-number">02</div>
+
+          <div class="reel-info">
+
+            <h3>Creator Project</h3>
+
+            <p>
+              Motion graphics & editing
+            </p>
+
+            <a
+              href="#"
+              class="instagram-link"
+              target="_blank">
+
+              Instagram ↗
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 03 -->
+
+      <article class="reel-card">
+
+        <video
+          src=""
+          poster=""
+          autoplay
+          muted
+          loop
+          playsinline>
+        </video>
+
+        <div class="reel-overlay">
+
+          <div class="reel-number">03</div>
+
+          <div class="reel-info">
+
+            <h3>Creator Project</h3>
+
+            <p>
+              Reels & social content
+            </p>
+
+            <a
+              href="#"
+              class="instagram-link"
+              target="_blank">
+
+              Instagram ↗
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 04 -->
+
+      <article class="reel-card">
+
+        <video
+          src=""
+          poster=""
+          autoplay
+          muted
+          loop
+          playsinline>
+        </video>
+
+        <div class="reel-overlay">
+
+          <div class="reel-number">04</div>
+
+          <div class="reel-info">
+
+            <h3>Brand Project</h3>
+
+            <p>
+              Product video editing
+            </p>
+
+            <a
+              href="#"
+              class="instagram-link"
+              target="_blank">
+
+              Instagram ↗
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SERVICES ================= -->
+
+  <section id="services">
+
+    <div class="section-header">
+
+      <div>
+
+        <div class="section-label">
+          What We Do
+        </div>
+
+        <h2 class="section-title">
+          Built for<br>
+          <span style="color:var(--yellow)">modern content.</span>
+        </h2>
+
+      </div>
+
+      <p class="section-description">
+        From raw footage to final delivery, we handle the visual
+        side of your content so you can focus on creating.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+      <div class="service">
+
+        <div class="service-icon">✦</div>
+
+        <h3>Video Editing</h3>
+
+        <p>
+          Professional long-form editing with storytelling,
+          pacing, sound design, transitions and visual polish.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">▶</div>
+
+        <h3>Reels & Shorts</h3>
+
+        <p>
+          Fast-paced vertical content designed to grab attention
+          and keep viewers watching.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">✹</div>
+
+        <h3>Motion Graphics</h3>
+
+        <p>
+          Dynamic titles, animations, typography and visual
+          effects that make your content stand out.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">◆</div>
+
+        <h3>Brand Content</h3>
+
+        <p>
+          Product videos, promotional content and social media
+          edits designed around your brand identity.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">◉</div>
+
+        <h3>Creator Content</h3>
+
+        <p>
+          Consistent editing systems for creators who want
+          professional content without editing everything themselves.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">⚡</div>
+
+        <h3>Visual Storytelling</h3>
+
+        <p>
+          We combine pacing, music, visuals and emotion to turn
+          raw footage into a story people want to watch.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section id="about">
+
+    <div class="about">
+
+
+      <div class="about-logo">
+
+        <img
+          src="Logo.png.png"
+          alt="ViniVox Studios">
+
+      </div>
+
+
+      <div class="about-text">
+
+        <div class="section-label">
+          About ViniVox
+        </div>
+
+        <h2 class="section-title">
+          Your footage.<br>
+          <span style="color:var(--yellow)">
+            Our craft.
+          </span>
+        </h2>
+
+        <p>
+          ViniVox Studios is a creative video editing studio
+          focused on helping creators and brands turn ideas,
+          footage and concepts into polished digital content.
+        </p>
+
+        <p>
+          From scroll-stopping reels to detailed long-form
+          edits, our goal is simple — make every frame count.
+        </p>
+
+
+        <div class="about-points">
+
+          <div class="about-point">
+            <span></span>
+            Creator-focused editing
+          </div>
+
+          <div class="about-point">
+            <span></span>
+            Story-driven post production
+          </div>
+
+          <div class="about-point">
+            <span></span>
+            Motion graphics & visual design
+          </div>
+
+          <div class="about-point">
+            <span></span>
+            Professional social content
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROCESS ================= -->
+
+  <section>
+
+    <div class="section-header">
+
+      <div>
+
+        <div class="section-label">
+          Our Process
+        </div>
+
+        <h2 class="section-title">
+          Simple.<br>
+          <span style="color:var(--yellow)">Effective.</span>
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+      <div class="process">
+
+        <div class="process-number">01 / BRIEF</div>
+
+        <h3>Understand</h3>
+
+        <p>
+          We understand your content, audience, references
+          and the result you want.
+        </p>
+
+      </div>
+
+
+      <div class="process">
+
+        <div class="process-number">02 / EDIT</div>
+
+        <h3>Create</h3>
+
+        <p>
+          Our editors transform your footage into a polished
+          visual story.
+        </p>
+
+      </div>
+
+
+      <div class="process">
+
+        <div class="process-number">03 / REVIEW</div>
+
+        <h3>Refine</h3>
+
+        <p>
+          Feedback is incorporated so the final edit matches
+          your vision.
+        </p>
+
+      </div>
+
+
+      <div class="process">
+
+        <div class="process-number">04 / DELIVER</div>
+
+        <h3>Launch</h3>
+
+        <p>
+          Final files are delivered ready for YouTube,
+          Instagram or your chosen platform.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT CTA ================= -->
+
+  <section id="contact">
+
+    <div class="cta">
+
+      <div class="section-label">
+        Have a project?
+      </div>
+
+      <h2>
+        Let's make your<br>
+        <span>content impossible to ignore.</span>
+      </h2>
+
+      <p>
+        Tell us what you're working on and let's discuss
+        how ViniVox Studios can help bring it to life.
+      </p>
+
+      <!-- IMPORTANT:
+           Replace 919999999999 with your actual WhatsApp number.
+           Format: country code + number, without + or spaces.
+      -->
+
+      <a
+        href="https://wa.me/919999999999?text=Hi%20ViniVox%20Studios%2C%20I%20want%20to%20discuss%20a%20project."
+        class="btn btn-primary"
+        target="_blank">
+
+        CONTACT US ON WHATSAPP →
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div>
+
+      <div class="footer-brand">
+        VINI<span>VOX</span> STUDIOS
+      </div>
+
+      <div class="copyright">
+        © 2026 ViniVox Studios. All rights reserved.
+      </div>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="#work">Work</a>
+
+      <a href="#services">Services</a>
+
+      <a href="#about">About</a>
+
+      <a href="#contact">Contact</a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script>
+
+    /*
+      ViniVox Studios
+      Basic video behaviour
+    */
+
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach(video => {
+
+      video.muted = true;
+
+      video.setAttribute("playsinline", "");
+
+      video.setAttribute("loop", "");
+
+      /*
+        Attempt autoplay.
+        Browsers generally allow autoplay
+        when video is muted.
+      */
+
+      video.play().catch(() => {
+
+        console.log("Autoplay waiting for browser permission.");
+
+      });
+
+    });
+
+
+    /*
+      Pause videos when they are outside
+      the visible screen.
+
+      This helps reduce CPU/GPU usage
+      when the page contains many reels.
+    */
+
+    const observer = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+
+            video.play().catch(() => {});
+
+          } else {
+
+            video.pause();
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.35
+      }
+
+    );
+
+
+    videos.forEach(video => {
+
+      observer.observe(video);
+
+    });
+
+  </script>
+
+
+</body>
+</html>
