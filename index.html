@@ -1653,5 +1653,101 @@ button:hover {
   });
 })();
 </script>
+
+<script>
+/* VINIVOX CINEMATIC LIGHT TRAIL */
+(() => {
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  canvas.style.cssText = `
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:99998;
+  `;
+  document.body.appendChild(canvas);
+
+  let width = 0;
+  let height = 0;
+  let lastX = null;
+  let lastY = null;
+  let streaks = [];
+  let frame = 0;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+
+  document.addEventListener("mousemove", (e) => {
+    if (lastX !== null) {
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const distance = Math.hypot(dx, dy);
+
+      if (distance > 2) {
+        streaks.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: -dx * 0.12 + (Math.random() - 0.5) * 1.5,
+          vy: -dy * 0.12 + (Math.random() - 0.5) * 1.5,
+          life: 1,
+          length: 8 + Math.random() * 16,
+          width: 0.7 + Math.random() * 1.2
+        });
+      }
+    }
+
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    streaks.forEach((s) => {
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vx *= 0.97;
+      s.vy *= 0.97;
+      s.life -= 0.035;
+
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(s.x - s.vx * s.length, s.y - s.vy * s.length);
+      ctx.strokeStyle = `rgba(255, ${150 + Math.random() * 70}, 20, ${Math.max(0, s.life)})`;
+      ctx.lineWidth = s.width;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = "rgba(255, 170, 25, 0.65)";
+      ctx.stroke();
+    });
+
+    ctx.shadowBlur = 0;
+    streaks = streaks.filter(s => s.life > 0).slice(-65);
+
+    frame = requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener("pagehide", () => {
+    cancelAnimationFrame(frame);
+  });
+})();
+</script>
+  
 </body>
 </html>
