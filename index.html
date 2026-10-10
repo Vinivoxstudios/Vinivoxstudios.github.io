@@ -327,7 +327,7 @@
 
     .reels-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 22px;
     }
 
@@ -1055,8 +1055,8 @@ button:hover {
 
         <video
           src="Charannshernii V1.mp4"
-          poster=""
-          autoplay
+          poster="Charanjeet%20Kaur.png"
+          
           muted
           loop
           playsinline>
@@ -1095,11 +1095,11 @@ button:hover {
 
       <video
         src="Ez Explains V1.mp4"
-        autoplay
+        poster="Neeraj%20Walia%20Ezexplains.png"
         muted
         loop
         playsinline
-        controls
+        
         preload="metadata">
       </video>
 
@@ -1631,81 +1631,28 @@ button:hover {
   <!-- ================= SCRIPT ================= -->
 
   <script>
+  // ViniVox Studios — hover-to-play portfolio videos
+  document.querySelectorAll(".reel-card").forEach(card => {
+    const video = card.querySelector("video");
+    if (!video) return;
 
-    /*
-      ViniVox Studios
-      Basic video behaviour
-    */
+    video.pause();
+    video.muted = true;
+    video.removeAttribute("autoplay");
+    video.setAttribute("playsinline", "");
+    video.preload = "none";
 
-    const videos = document.querySelectorAll("video");
-
-    videos.forEach(video => {
-
-      video.muted = true;
-
-      video.setAttribute("playsinline", "");
-
-      video.setAttribute("loop", "");
-
-      /*
-        Attempt autoplay.
-        Browsers generally allow autoplay
-        when video is muted.
-      */
-
-      video.play().catch(() => {
-
-        console.log("Autoplay waiting for browser permission.");
-
-      });
-
+    card.addEventListener("mouseenter", () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
     });
 
-
-    /*
-      Pause videos when they are outside
-      the visible screen.
-
-      This helps reduce CPU/GPU usage
-      when the page contains many reels.
-    */
-
-    const observer = new IntersectionObserver(
-
-      entries => {
-
-        entries.forEach(entry => {
-
-          const video = entry.target;
-
-          if (entry.isIntersecting) {
-
-            video.play().catch(() => {});
-
-          } else {
-
-            video.pause();
-
-          }
-
-        });
-
-      },
-
-      {
-        threshold: 0.35
-      }
-
-    );
-
-
-    videos.forEach(video => {
-
-      observer.observe(video);
-
+    card.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
     });
-
-  </script>
+  });
+</script>
 
 
 <script>
